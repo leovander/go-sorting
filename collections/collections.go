@@ -1,14 +1,18 @@
+// Package collections provides various utilities to perform on slices and arrays
 package collections
 
 import "github.com/leovander/go-sorting/sorts"
 
+// Filters out odd ints from a given slice and returns a sorted slice
 func SortEvens(collection []int) []int {
 	evens := evens(collection)
-	return sorts.QuickSort(evens, 0, len(evens)-1)
+	sorts.QuickSort(evens, 0, len(evens)-1)
+	return evens
 }
 
+// Returns a slice of a slice containing only even ints
 func evens(collection []int) []int {
-	if len(collection) == 0 {
+	if len(collection) <= 1 {
 		return collection
 	}
 

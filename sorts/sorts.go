@@ -1,16 +1,17 @@
+// Package sorts provides different sorting algorithms that can be performed
+// on a slice of ints
 package sorts
 
-func QuickSort(input []int, start int, end int) []int {
+// Performs recursive the QuickSort in place
+func QuickSort(input []int, start int, end int) {
 	if start < end {
-		var q int = partion(input, start, end)
+		var q int = partition(input, start, end)
 		QuickSort(input, start, q-1)
 		QuickSort(input, q+1, end)
 	}
-
-	return input
 }
 
-func partion(input []int, start int, end int) int {
+func partition(input []int, start int, end int) int {
 	var x int = input[end]
 	var i int = start - 1
 
